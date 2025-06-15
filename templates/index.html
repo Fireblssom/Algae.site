@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algae - Rooted in Stability</title>
-  <meta name="description" content="Algae: A stablecoin backed by the Algae Bed, a dynamically managed financial pool with algorithmic trading and real-time redemption.">
+  <title>Algae Stablecoin - Rooted in Stability with the Algae Bed</title>
+  <meta name="description" content="Discover Algae, a stablecoin backed by the Algae Bed’s algorithmic trading pool, redeemable anytime for a hard value floor.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/dist/heroicons.min.css" rel="stylesheet">
   <style>
     body {
       background-color: #0a1128;
@@ -18,7 +19,7 @@
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
     }
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       font-family: 'Exo 2', sans-serif;
     }
     .hero-bg {
@@ -81,12 +82,12 @@
     .reflective:hover::before {
       transform: rotate(45deg) translate(50%, 50%);
     }
-    .tab-content {
+    .tab-content, .faq-content {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.5s ease-out;
     }
-    .tab-content.active {
+    .tab-content.active, .faq-content.active {
       max-height: 500px;
     }
     .glow {
@@ -145,165 +146,9 @@
       background: linear-gradient(to top, #4fd1c5 0%, #4fd1c5 var(--fill), transparent var(--fill));
       transition: --fill 2s ease;
     }
-    .wave-text {
-      display: inline-block;
-      will-change: transform;
-    }
-    .count-up {
-      display: inline-block;
-    }
-    .timeline-item, .step-item {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-relationals, and animations for a polished, high-tech look. Below is the updated HTML code.
-
-<xaiArtifact artifact_id="01c84040-f80d-44da-8796-f9b3159fc9fa" artifact_version_id="04930468-cb48-4d84-95ee-29ad30991593" title="index.html" contentType="text/html">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algae - Rooted in Stability</title>
-  <meta name="description" content="Algae: A stablecoin backed by the Algae Bed, a dynamically managed financial pool with algorithmic trading and real-time redemption.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #0a1128;
-      color: #d1d5db;
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-    }
-    h1, h2, h3 {
-      font-family: 'Exo 2', sans-serif;
-    }
-    .hero-bg {
-      position: relative;
-      overflow: hidden;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-    }
-    #water-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      opacity: 0.3;
-    }
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    .reflective {
-      position: relative;
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(79,209,197,0.1));
-      border: 1px solid rgba(79,209,197,0.3);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      overflow: hidden;
-      transition: background 0.5s ease, border-color 0.5s ease;
-    }
-    .reflective::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-      transform: rotate(45deg);
-      transition: transform 0.5s ease;
-    }
-    .reflective[data-tint="hero"] {
-      background: linear-gradient(135deg, rgba(79,209,197,0.1), rgba(79,209,197,0.2));
-      border-color: rgba(79,209,197,0.5);
-    }
-    .reflective[data-tint="trading"] {
-      background: linear-gradient(135deg, rgba(0,247,255,0.1), rgba(0,247,255,0.2));
-      border-color: rgba(0,247,255,0.5);
-    }
-    .reflective[data-tint="default"] {
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(79,209,197,0.1));
-      border-color: rgba(79,209,197,0.3);
-    }
-    .reflective:hover::before {
-      transform: rotate(45deg) translate(50%, 50%);
-    }
-    .tab-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease-out;
-    }
-    .tab-content.active {
-      max-height: 500px;
-    }
-    .glow {
-      box-shadow: 0 0 10px #4fd1c5, 0 0 20px #4fd1c5;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 10px #4fd1c5; }
-      50% { box-shadow: 0 0 20px #4fd1c5; }
-    }
-    .ticker {
-      animation: slide 20s linear infinite;
-      background: linear-gradient(135deg, rgba(79,209,197,0.1), rgba(79,209,197,0.2));
-    }
-    @keyframes slide {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    .social-logo, .wallet-card, .resource-card, .exchange-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .social-logo:hover, .wallet-card:hover, .resource-card:hover, .exchange-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #4fd1c5;
-    }
-    .ripple {
-      position: relative;
-      overflow: hidden;
-    }
-    .ripple::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(79,209,197,0.3);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: width 0.5s ease, height 0.5s ease;
-    }
-    .ripple:hover::after {
-      width: 300px;
-      height: 300px;
-    }
-    .water-flow {
-      background: linear-gradient(90deg, rgba(79,209,197,0.2), rgba(0,247,255,0.2));
-      height: 20px;
-      animation: flow 5s linear infinite;
-    }
-    @keyframes flow {
-      0% { background-position: 0 0; }
-      100% { background-position: 100% 0; }
-    }
-    .liquid-fill {
-      background: linear-gradient(to top, #4fd1c5 0%, #4fd1c5 var(--fill), transparent var(--fill));
+    .liquid-fill-bar {
+      height: 10px;
+      background: linear-gradient(to right, #4fd1c5 0%, #4fd1c5 var(--fill), transparent var(--fill));
       transition: --fill 2s ease;
     }
     .wave-text {
@@ -316,19 +161,6 @@ relationals, and animations for a polished, high-tech look. Below is the updated
     .timeline-item, .step-item {
       opacity: 0;
       transform: translateX(-50px);
-    }
-    .diagram-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, rgba(79,209,197,0.2), transparent);
-      animation: wave-overlay 3s infinite;
-    }
-    @keyframes wave-overlay {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
     }
   </style>
 </head>
@@ -339,10 +171,10 @@ relationals, and animations for a polished, high-tech look. Below is the updated
     <div id="particles-js"></div>
     <div class="container mx-auto px-4 text-center hero-content">
       <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white reflective" data-tint="hero">
-        <span class="wave-text">Algae</span>: Rooted in Stability
+        <span class="wave-text">Algae Stablecoin</span>: Rooted in Stability
       </h1>
       <p class="text-xl md:text-2xl mb-8 text-gray-300">
-        A stablecoin backed by the Algae Bed, redeemable anytime for your share of a dynamically traded pool.
+        Discover Algae, a redeemable stablecoin backed by the Algae Bed’s algorithmic trading pool for a hard value floor.
       </p>
       <a href="#about" class="bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-cyan-600 transition glow ripple">Grow with Algae</a>
     </div>
@@ -351,22 +183,28 @@ relationals, and animations for a polished, high-tech look. Below is the updated
   <!-- Why Algae Section -->
   <section class="py-16 bg-gray-900" data-section="default">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">Why Algae?</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">Why Choose Algae Stablecoin?</h2>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="p-6 bg-gray-800 rounded-lg shadow-lg text-center reflective ripple" data-tint="default">
+          <svg class="w-12 h-12 mx-auto mb-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Hard Value Floor</h3>
           <p class="text-3xl text-white"><span class="count-up" data-count="1">0</span>:1 Redemption</p>
-          <p class="text-gray-300 mt-2">Redeem ALGA for your share of the pool anytime.</p>
+          <div class="liquid-fill-bar mt-2" style="--fill: 100%;"></div>
+          <p class="text-gray-300 mt-2">Redeem Algae stablecoin for your share of the Algae Bed pool anytime.</p>
         </div>
         <div class="p-6 bg-gray-800 rounded-lg shadow-lg text-center reflective ripple" data-tint="default">
+          <svg class="w-12 h-12 mx-auto mb-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
           <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Dynamic Pool</h3>
           <p class="text-3xl text-white">$<span class="count-up" data-count="100">0</span>M+</p>
-          <p class="text-gray-300 mt-2">Managed by advanced trading algorithms.</p>
+          <div class="liquid-fill-bar mt-2" style="--fill: 80%;"></div>
+          <p class="text-gray-300 mt-2">Managed by advanced algorithmic trading for growth.</p>
         </div>
         <div class="p-6 bg-gray-800 rounded-lg shadow-lg text-center reflective ripple" data-tint="default">
+          <svg class="w-12 h-12 mx-auto mb-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Transparency</h3>
           <p class="text-3xl text-white"><span class="count-up" data-count="12">0</span>/Year</p>
-          <p class="text-gray-300 mt-2">Monthly reports and real-time tracking.</p>
+          <div class="liquid-fill-bar mt-2" style="--fill: 90%;"></div>
+          <p class="text-gray-300 mt-2">Monthly reports and real-time Algae Bed tracking.</p>
         </div>
       </div>
     </div>
@@ -375,24 +213,24 @@ relationals, and animations for a polished, high-tech look. Below is the updated
   <!-- About Section with Tabs, Algae Bed, and Roadmap -->
   <section id="about" class="py-16" data-section="default">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">About Algae</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">About Algae Stablecoin</h2>
       <div class="space-y-6 mb-16">
         <div class="tab bg-gray-900 rounded-lg p-6 cursor-pointer reflective ripple" data-tint="default" data-tab="stability">
           <h3 class="text-2xl font-semibold text-cyan-400">Stability</h3>
           <div class="tab-content">
-            <p class="text-gray-300 mt-4">ALGA tokens are redeemable anytime for your proportional share of the Algae Bed, ensuring a hard floor on value.</p>
+            <p class="text-gray-300 mt-4">Algae stablecoin ensures a hard value floor through the Algae Bed’s diversified trading pool, redeemable anytime for your proportional share.</p>
           </div>
         </div>
         <div class="tab bg-gray-900 rounded-lg p-6 cursor-pointer reflective ripple" data-tint="default" data-tab="transparency">
           <h3 class="text-2xl font-semibold text-cyan-400">Transparency</h3>
           <div class="tab-content">
-            <p class="text-gray-300 mt-4">The Algae Bed is tracked in real-time, with monthly reports and audits published for full accountability.</p>
+            <p class="text-gray-300 mt-4">The Algae Bed is tracked in real-time, with monthly reports and audits published for full accountability of the stablecoin’s backing.</p>
           </div>
         </div>
         <div class="tab bg-gray-900 rounded-lg p-6 cursor-pointer reflective ripple" data-tint="default" data-tab="innovation">
           <h3 class="text-2xl font-semibold text-cyan-400">Innovation</h3>
           <div class="tab-content">
-            <p class="text-gray-300 mt-4">Our trading engine uses proven and experimental models like mean reversion and arbitrage, dynamically weighting capital to top performers.</p>
+            <p class="text-gray-300 mt-4">Our algorithmic trading engine uses proven models like mean reversion and arbitrage, dynamically weighting capital to top performers for Algae stablecoin growth.</p>
           </div>
         </div>
       </div>
@@ -400,29 +238,34 @@ relationals, and animations for a polished, high-tech look. Below is the updated
       <div class="grid md:grid-cols-2 gap-8 mb-16">
         <div class="bg-gray-800 rounded-lg p-6 reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Dynamic Pool Composition</h3>
-          <p class="text-gray-300 mb-4">The Algae Bed is diversified across fiat pairs, crypto, and liquid markets, with allocations adjusted by our trading engine.</p>
-          <div class="liquid-fill text-2xl text-white" style="--fill: 60%;">60% Fiat</div>
-          <div class="liquid-fill text-2xl text-white mt-2" style="--fill: 30%;">30% Crypto</div>
-          <div class="liquid-fill text-2xl text-white mt-2" style="--fill: 10%;">10% Other</div>
+          <p class="text-gray-300 mb-4">The Algae Bed diversifies across fiat pairs, crypto, and liquid markets, with allocations adjusted by our trading engine to ensure stability for Algae stablecoin.</p>
+          <svg class="w-full h-48" viewBox="0 0 200 200" aria-label="Algae Bed Pool Composition Diagram">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#4fd1c5" stroke-width="20" stroke-dasharray="339.3" stroke-dashoffset="0" class="diagram-path"/>
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#00f7ff" stroke-width="20" stroke-dasharray="169.6" stroke-dashoffset="-339.3" class="diagram-path"/>
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#d1d5db" stroke-width="20" stroke-dasharray="56.5" stroke-dashoffset="-508.9" class="diagram-path"/>
+            <text x="100" y="80" text-anchor="middle" fill="#d1d5db" class="diagram-label">60% Fiat</text>
+            <text x="100" y="120" text-anchor="middle" fill="#d1d5db" class="diagram-label">30% Crypto</text>
+            <text x="100" y="160" text-anchor="middle" fill="#d1d5db" class="diagram-label">10% Other</text>
+          </svg>
         </div>
         <div class="bg-gray-800 rounded-lg p-6 reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Growth Engine</h3>
-          <p class="text-gray-300">Our trading models include mean reversion, momentum, and arbitrage, with capital weighted toward top performers.</p>
+          <p class="text-gray-300">Our trading models include mean reversion, momentum, and arbitrage, with capital weighted toward top performers to drive Algae Bed growth, ensuring a robust backing for Algae stablecoin.</p>
         </div>
       </div>
       <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">Roadmap</h2>
       <div class="space-y-8">
         <div class="timeline-item bg-gray-800 p-6 rounded-lg reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400">Q1 2025: Launch</h3>
-          <p class="text-gray-300">Token issuance and initial exchange listings.</p>
+          <p class="text-gray-300">Token issuance and initial exchange listings for Algae stablecoin.</p>
         </div>
         <div class="timeline-item bg-gray-800 p-6 rounded-lg reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400">Q2 2025: Wallet Integration</h3>
-          <p class="text-gray-300">Support for MetaMask, Trust Wallet, and more.</p>
+          <p class="text-gray-300">Support for MetaMask, Trust Wallet, and more to store Algae stablecoin.</p>
         </div>
         <div class="timeline-item bg-gray-800 p-6 rounded-lg reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400">Q4 2025: DeFi Expansion</h3>
-          <p class="text-gray-300">Integration with DeFi protocols for lending and staking.</p>
+          <p class="text-gray-300">Integration with DeFi protocols for lending and staking Algae stablecoin.</p>
         </div>
       </div>
     </div>
@@ -432,24 +275,52 @@ relationals, and animations for a polished, high-tech look. Below is the updated
   <section id="how-it-works" class="py-16 bg-gray-900" data-section="default">
     <div class="container mx-auto px-4">
       <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">How the Algae Bed Works</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
+      <div class="grid md:grid-cols-1 gap-8 mb-16">
+        <div class="bg-gray-800 rounded-lg p-6 reflective" data-tint="default">
+          <h3 class="text-2xl font-semibold text-cyan-400 mb-4">The Algae Bed: A Robust Backing for Algae Stablecoin</h3>
+          <p class="text-gray-300 mb-4">The Algae Bed is a diversified financial pool that underpins the Algae stablecoin, ensuring stability through algorithmic trading and real-time redemption. Unlike traditional stablecoins, Algae leverages a dynamic trading engine to optimize pool performance, maintaining a hard value floor for ALGA tokens. Our strategies include mean reversion, momentum, and arbitrage, with capital dynamically allocated to top-performing models. Holders can redeem ALGA tokens anytime for their proportional share of the pool, providing unmatched flexibility and trust.</p>
           <div class="step-item mb-6 reflective" data-tint="default">
-            <h3 class="text-xl font-semibold text-cyan-400">1. Backed by the Algae Bed</h3>
-            <p class="text-gray-300">ALGA tokens are fully backed by a diversified financial pool, ensuring a hard value floor.</p>
+            <h4 class="text-xl font-semibold text-cyan-400">1. Backed by the Algae Bed</h4>
+            <p class="text-gray-300">ALGA tokens are fully backed by a diversified pool of fiat, crypto, and liquid assets, ensuring a hard value floor for the stablecoin.</p>
           </div>
           <div class="step-item mb-6 reflective" data-tint="default">
-            <h3 class="text-xl font-semibold text-cyan-400">2. Algorithmic Trading</h3>
-            <p class="text-gray-300">The pool is actively managed using proven and experimental strategies, with performance-based capital allocation.</p>
+            <h4 class="text-xl font-semibold text-cyan-400">2. Algorithmic Trading</h4>
+            <p class="text-gray-300">The pool is actively managed using proven and experimental trading strategies, with performance-based capital allocation to maximize Algae Bed growth.</p>
           </div>
           <div class="step-item reflective" data-tint="default">
-            <h3 class="text-xl font-semibold text-cyan-400">3. Redemption</h3>
-            <p class="text-gray-300">Holders can redeem ALGA for their proportional share of the pool at any time.</p>
+            <h4 class="text-xl font-semibold text-cyan-400">3. Redemption</h4>
+            <p class="text-gray-300">Holders can redeem Algae stablecoin for their proportional share of the Algae Bed pool at any time, ensuring liquidity and trust.</p>
           </div>
         </div>
-        <div class="bg-gray-800 rounded-lg p-6 text-center relative reflective" data-tint="default">
-          <div class="diagram-overlay"></div>
-          <p class="text-gray-300 relative z-10">Algae Bed Flow Diagram Placeholder</p>
+      </div>
+      <h3 class="text-2xl font-bold text-center mb-8 text-cyan-400 reflective" data-tint="default">Frequently Asked Questions</h3>
+      <div class="space-y-4">
+        <div class="faq bg-gray-800 rounded-lg p-6 cursor-pointer reflective ripple" data-tint="default" data-faq="what">
+          <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M9 16h6M7 8h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2z"></path></svg>
+            <h4 class="text-xl font-semibold text-cyan-400">What is the Algae Bed?</h4>
+          </div>
+          <div class="faq-content">
+            <p class="text-gray-300 mt-4">The Algae Bed is a diversified financial pool backing the Algae stablecoin, managed by algorithmic trading to ensure stability and growth.</p>
+          </div>
+        </div>
+        <div class="faq bg-gray-800 rounded-lg p-6 cursor-pointer reflective ripple" data-tint="default" data-faq="redeem">
+          <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <h4 class="text-xl font-semibold text-cyan-400">How do I redeem ALGA tokens?</h4>
+          </div>
+          <div class="faq-content">
+            <p class="text-gray-300 mt-4">Visit the Algae redemption portal, connect your wallet, and exchange ALGA tokens for your share of the Algae Bed pool instantly.</p>
+          </div>
+        </div>
+        <div class="faq bg-gray-800 rounded-lg p-6 cursor-pointer reflective ripple" data-tint="default" data-faq="safe">
+          <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4m-4-4c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4m-4-4c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4m-4-4c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4"></path></svg>
+            <h4 class="text-xl font-semibold text-cyan-400">Is Algae stablecoin safe?</h4>
+          </div>
+          <div class="faq-content">
+            <p class="text-gray-300 mt-4">Algae’s hard value floor and transparent Algae Bed tracking ensure safety, with monthly audits to maintain trust.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -458,40 +329,43 @@ relationals, and animations for a polished, high-tech look. Below is the updated
   <!-- Trading & Wallet Section -->
   <section id="trading" class="py-16" data-section="trading">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="trading">Trade & Store ALGA</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="trading">Trade & Store Algae Stablecoin</h2>
       <div class="grid md:grid-cols-3 gap-8 mb-16">
         <div class="wallet-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
+          <img src="https://cdn.svgporn.com/logos/metamask-icon.svg" alt="MetaMask Wallet for Algae Stablecoin" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">MetaMask</h3>
-          <p class="text-gray-300">Connect your MetaMask wallet to trade ALGA.</p>
+          <p class="text-gray-300">Connect your MetaMask wallet to trade Algae stablecoin.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Setup Guide</a>
         </div>
         <div class="wallet-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
+          <img src="https://cdn.svgporn.com/logos/trust-wallet.svg" alt="Trust Wallet for Algae Stablecoin" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Trust Wallet</h3>
-          <p class="text-gray-300">Store ALGA securely with Trust Wallet.</p>
+          <p class="text-gray-300">Store Algae stablecoin securely with Trust Wallet.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Setup Guide</a>
         </div>
         <div class="wallet-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
+          <svg class="w-12 h-12 mx-auto mb-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8m4-8v8m4-8v8M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"></path></svg>
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Portfolio Tracker</h3>
-          <p class="text-gray-300">Monitor your ALGA holdings in real-time.</p>
+          <p class="text-gray-300">Monitor your Algae stablecoin holdings in real-time.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Track Now</a>
         </div>
       </div>
       <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="trading">Available Exchanges</h2>
       <div class="grid md:grid-cols-4 gap-8">
         <a href="https://www.binance.com" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
-          <img src="https://cdn.svgporn.com/logos/binance.svg" alt="Binance" class="w-12 h-12 mx-auto mb-4">
+          <img src="https://cdn.svgporn.com/logos/binance.svg" alt="Binance Exchange for Algae Stablecoin Trading" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400">Binance</h3>
         </a>
         <a href="https://www.coinbase.com" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
-          <img src="https://cdn.svgporn.com/logos/coinbase.svg" alt="Coinbase" class="w-12 h-12 mx-auto mb-4">
+          <img src="https://cdn.svgporn.com/logos/coinbase.svg" alt="Coinbase Exchange for Algae Stablecoin Trading" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400">Coinbase</h3>
         </a>
         <a href="https://www.kraken.com" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
-          <img src="https://cdn.svgporn.com/logos/kraken.svg" alt="Kraken" class="w-12 h-12 mx-auto mb-4">
+          <img src="https://cdn.svgporn.com/logos/kraken.svg" alt="Kraken Exchange for Algae Stablecoin Trading" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400">Kraken</h3>
         </a>
         <a href="https://uniswap.org" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
-          <img src="https://cdn.svgporn.com/logos/uniswap.svg" alt="Uniswap" class="w-12 h-12 mx-auto mb-4">
+          <img src="https://cdn.svgporn.com/logos/uniswap.svg" alt="Uniswap for Algae Stablecoin Trading" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400">Uniswap</h3>
         </a>
       </div>
@@ -501,43 +375,48 @@ relationals, and animations for a polished, high-tech look. Below is the updated
   <!-- Resources Section -->
   <section id="resources" class="py-16 bg-gray-900" data-section="default">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">Resources</h2>
-      <div class="grid md:grid-cols-3 gap-8">
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">Resources for Algae Stablecoin</h2>
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
         <div class="resource-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="default">
+          <svg class="w-12 h-12 mx-auto mb-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2-12H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2z"></path></svg>
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Whitepaper</h3>
-          <p class="text-gray-300">Dive into the technical details of Algae and the Algae Bed.</p>
+          <p class="text-gray-300">Dive into the technical details of Algae stablecoin and the Algae Bed’s algorithmic trading system.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Download</a>
         </div>
         <div class="resource-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="default">
+          <svg class="w-12 h-12 mx-auto mb-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Transparency Dashboard</h3>
-          <p class="text-gray-300">Real-time Algae Bed composition and performance.</p>
+          <p class="text-gray-300">View real-time Algae Bed composition and performance for Algae stablecoin.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block glow">View Now</a>
         </div>
         <div class="resource-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="default">
+          <svg class="w-12 h-12 mx-auto mb-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Learn</h3>
-          <p class="text-gray-300">Tutorials on stablecoins and the Algae Bed.</p>
+          <p class="text-gray-300">Tutorials on stablecoins and the Algae Bed’s unique features.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Explore</a>
         </div>
       </div>
+      <h3 class="text-2xl font-bold text-center mb-8 text-cyan-400 reflective" data-tint="default">Understanding Stablecoins</h3>
+      <p class="text-gray-300 max-w-3xl mx-auto mb-8">Stablecoins like Algae maintain a stable value, making them ideal for transactions and savings in the volatile crypto market. Algae stablecoin stands out with its Algae Bed, a diversified pool managed by algorithmic trading to ensure a hard value floor. Unlike fiat-backed stablecoins (e.g., USDT), Algae’s dynamic pool includes fiat, crypto, and liquid assets, optimized for growth and stability. Our redemption feature allows you to exchange ALGA tokens for your share of the pool anytime, providing unmatched flexibility. Learn more about how Algae redefines stability in our whitepaper and transparency dashboard.</p>
     </div>
   </section>
 
   <!-- Community Section -->
   <section id="community" class="py-16 bg-gray-800" data-section="default">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold mb-12 text-cyan-400 reflective" data-tint="default">Join the Algae Community</h2>
+      <h2 class="text-4xl font-bold mb-12 text-cyan-400 reflective" data-tint="default">Join the Algae Stablecoin Community</h2>
       <div class="flex justify-center space-x-8 mb-8">
         <a href="https://discord.com/invite/your-discord" target="_blank" class="social-logo reflective ripple" data-tint="default">
-          <img src="https://cdn.svgporn.com/logos/discord-icon.svg" alt="Discord" class="w-12 h-12">
+          <img src="https://cdn.svgporn.com/logos/discord-icon.svg" alt="Discord Community for Algae Stablecoin" class="w-12 h-12">
         </a>
         <a href="https://t.me/your-telegram" target="_blank" class="social-logo reflective ripple" data-tint="default">
-          <img src="https://cdn.svgporn.com/logos/telegram.svg" alt="Telegram" class="w-12 h-12">
+          <img src="https://cdn.svgporn.com/logos/telegram.svg" alt="Telegram Community for Algae Stablecoin" class="w-12 h-12">
         </a>
         <a href="https://x.com/your-x" target="_blank" class="social-logo reflective ripple" data-tint="default">
-          <img src="https://cdn.svgporn.com/logos/x.svg" alt="X" class="w-12 h-12">
+          <img src="https://cdn.svgporn.com/logos/x.svg" alt="X Community for Algae Stablecoin" class="w-12 h-12">
         </a>
         <a href="https://reddit.com/r/your-reddit" target="_blank" class="social-logo reflective ripple" data-tint="default">
-          <img src="https://cdn.svgporn.com/logos/reddit-icon.svg" alt="Reddit" class="w-12 h-12">
+          <img src="https://cdn.svgporn.com/logos/reddit-icon.svg" alt="Reddit Community for Algae Stablecoin" class="w-12 h-12">
         </a>
       </div>
       <div class="max-w-md mx-auto">
@@ -669,11 +548,11 @@ relationals, and animations for a polished, high-tech look. Below is the updated
       });
     });
 
-    // Scroll-Triggered Tab Expansion
-    document.querySelectorAll('.tab').forEach(tab => {
-      gsap.to(tab.querySelector('.tab-content'), {
+    // Scroll-Triggered Tab and FAQ Expansion
+    document.querySelectorAll('.tab, .faq').forEach(item => {
+      gsap.to(item.querySelector('.tab-content, .faq-content'), {
         scrollTrigger: {
-          trigger: tab,
+          trigger: item,
           start: "top 80%",
           toggleActions: "play none none reverse"
         },
@@ -693,11 +572,28 @@ relationals, and animations for a polished, high-tech look. Below is the updated
     });
 
     // Liquid-Fill Animation
-    gsap.utils.toArray('.liquid-fill').forEach(el => {
+    gsap.utils.toArray('.liquid-fill, .liquid-fill-bar').forEach(el => {
       gsap.to(el, {
         '--fill': el.style.getPropertyValue('--fill'),
         duration: 2,
         scrollTrigger: { trigger: el, start: "top 80%" }
+      });
+    });
+
+    // Diagram Animations (for About section pie chart)
+    gsap.utils.toArray('.diagram-path').forEach(path => {
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        duration: 2,
+        scrollTrigger: { trigger: path, start: "top 80%" }
+      });
+    });
+    gsap.utils.toArray('.diagram-label').forEach(label => {
+      gsap.to(label, {
+        opacity: 1,
+        duration: 1,
+        delay: 1,
+        scrollTrigger: { trigger: label, start: "top 80%" }
       });
     });
 
