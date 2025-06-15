@@ -8,7 +8,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -48,6 +47,40 @@
       position: relative;
       z-index: 2;
     }
+    .reflective {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(79,209,197,0.1));
+      border: 1px solid rgba(79,209,197,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+      transition: background 0.5s ease, border-color 0.5s ease;
+    }
+    .reflective::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: rotate(45deg);
+      transition: transform 0.5s ease;
+    }
+    .reflective[data-tint="hero"] {
+      background: linear-gradient(135deg, rgba(79,209,197,0.1), rgba(79,209,197,0.2));
+      border-color: rgba(79,209,197,0.5);
+    }
+    .reflective[data-tint="trading"] {
+      background: linear-gradient(135deg, rgba(0,247,255,0.1), rgba(0,247,255,0.2));
+      border-color: rgba(0,247,255,0.5);
+    }
+    .reflective[data-tint="default"] {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(79,209,197,0.1));
+      border-color: rgba(79,209,197,0.3);
+    }
+    .reflective:hover::before {
+      transform: rotate(45deg) translate(50%, 50%);
+    }
     .tab-content {
       max-height: 0;
       overflow: hidden;
@@ -66,7 +99,7 @@
     }
     .ticker {
       animation: slide 20s linear infinite;
-      background: rgba(79,209,197,0.1);
+      background: linear-gradient(135deg, rgba(79,209,197,0.1), rgba(79,209,197,0.2));
     }
     @keyframes slide {
       0% { transform: translateX(100%); }
@@ -76,7 +109,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .social-logo:hover, .wallet-card:hover, .resource-card:hover, .exchange-card:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       box-shadow: 0 0 15px #4fd1c5;
     }
     .ripple {
@@ -86,16 +119,18 @@
     .ripple::after {
       content: '';
       position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: radial-gradient(circle, rgba(79,209,197,0.3) 10%, transparent 10.01%) no-repeat center;
-      transform: scale(0);
-      transition: transform 0.5s ease;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(79,209,197,0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
     }
     .ripple:hover::after {
-      transform: scale(10);
+      width: 300px;
+      height: 300px;
     }
     .water-flow {
       background: linear-gradient(90deg, rgba(79,209,197,0.2), rgba(0,247,255,0.2));
@@ -112,11 +147,168 @@
     }
     .wave-text {
       display: inline-block;
-      animation: wave 2s infinite;
+      will-change: transform;
     }
-    @keyframes wave {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+    .count-up {
+      display: inline-block;
+    }
+    .timeline-item, .step-item {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+relationals, and animations for a polished, high-tech look. Below is the updated HTML code.
+
+<xaiArtifact artifact_id="01c84040-f80d-44da-8796-f9b3159fc9fa" artifact_version_id="04930468-cb48-4d84-95ee-29ad30991593" title="index.html" contentType="text/html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algae - Rooted in Stability</title>
+  <meta name="description" content="Algae: A stablecoin backed by the Algae Bed, a dynamically managed financial pool with algorithmic trading and real-time redemption.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0a1128;
+      color: #d1d5db;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 {
+      font-family: 'Exo 2', sans-serif;
+    }
+    .hero-bg {
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+    #water-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.3;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .reflective {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(79,209,197,0.1));
+      border: 1px solid rgba(79,209,197,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+      transition: background 0.5s ease, border-color 0.5s ease;
+    }
+    .reflective::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: rotate(45deg);
+      transition: transform 0.5s ease;
+    }
+    .reflective[data-tint="hero"] {
+      background: linear-gradient(135deg, rgba(79,209,197,0.1), rgba(79,209,197,0.2));
+      border-color: rgba(79,209,197,0.5);
+    }
+    .reflective[data-tint="trading"] {
+      background: linear-gradient(135deg, rgba(0,247,255,0.1), rgba(0,247,255,0.2));
+      border-color: rgba(0,247,255,0.5);
+    }
+    .reflective[data-tint="default"] {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(79,209,197,0.1));
+      border-color: rgba(79,209,197,0.3);
+    }
+    .reflective:hover::before {
+      transform: rotate(45deg) translate(50%, 50%);
+    }
+    .tab-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+    }
+    .tab-content.active {
+      max-height: 500px;
+    }
+    .glow {
+      box-shadow: 0 0 10px #4fd1c5, 0 0 20px #4fd1c5;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px #4fd1c5; }
+      50% { box-shadow: 0 0 20px #4fd1c5; }
+    }
+    .ticker {
+      animation: slide 20s linear infinite;
+      background: linear-gradient(135deg, rgba(79,209,197,0.1), rgba(79,209,197,0.2));
+    }
+    @keyframes slide {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .social-logo, .wallet-card, .resource-card, .exchange-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .social-logo:hover, .wallet-card:hover, .resource-card:hover, .exchange-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #4fd1c5;
+    }
+    .ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    .ripple::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(79,209,197,0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+    .ripple:hover::after {
+      width: 300px;
+      height: 300px;
+    }
+    .water-flow {
+      background: linear-gradient(90deg, rgba(79,209,197,0.2), rgba(0,247,255,0.2));
+      height: 20px;
+      animation: flow 5s linear infinite;
+    }
+    @keyframes flow {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 0; }
+    }
+    .liquid-fill {
+      background: linear-gradient(to top, #4fd1c5 0%, #4fd1c5 var(--fill), transparent var(--fill));
+      transition: --fill 2s ease;
+    }
+    .wave-text {
+      display: inline-block;
+      will-change: transform;
     }
     .count-up {
       display: inline-block;
@@ -142,38 +334,36 @@
 </head>
 <body>
   <!-- Hero Section with Water Ripple and Particles -->
-  <section class="hero-bg py-24 relative">
+  <section class="hero-bg py-24 relative" data-section="hero">
     <canvas id="water-canvas"></canvas>
     <div id="particles-js"></div>
     <div class="container mx-auto px-4 text-center hero-content">
-      <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white">
+      <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white reflective" data-tint="hero">
         <span class="wave-text">Algae</span>: Rooted in Stability
       </h1>
       <p class="text-xl md:text-2xl mb-8 text-gray-300">
         A stablecoin backed by the Algae Bed, redeemable anytime for your share of a dynamically traded pool.
       </p>
-      <a href="#about" class="bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-cyan-600 transition glow ripple">
-        Grow with Algae
-      </a>
+      <a href="#about" class="bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-cyan-600 transition glow ripple">Grow with Algae</a>
     </div>
   </section>
 
   <!-- Why Algae Section -->
-  <section class="py-16 bg-gray-900">
+  <section class="py-16 bg-gray-900" data-section="default">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400">Why Algae?</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">Why Algae?</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-6 bg-gray-800 rounded-lg shadow-lg text-center ripple">
+        <div class="p-6 bg-gray-800 rounded-lg shadow-lg text-center reflective ripple" data-tint="default">
           <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Hard Value Floor</h3>
           <p class="text-3xl text-white"><span class="count-up" data-count="1">0</span>:1 Redemption</p>
           <p class="text-gray-300 mt-2">Redeem ALGA for your share of the pool anytime.</p>
         </div>
-        <div class="p-6 bg-gray-800 rounded-lg shadow-lg text-center ripple">
+        <div class="p-6 bg-gray-800 rounded-lg shadow-lg text-center reflective ripple" data-tint="default">
           <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Dynamic Pool</h3>
           <p class="text-3xl text-white">$<span class="count-up" data-count="100">0</span>M+</p>
           <p class="text-gray-300 mt-2">Managed by advanced trading algorithms.</p>
         </div>
-        <div class="p-6 bg-gray-800 rounded-lg shadow-lg text-center ripple">
+        <div class="p-6 bg-gray-800 rounded-lg shadow-lg text-center reflective ripple" data-tint="default">
           <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Transparency</h3>
           <p class="text-3xl text-white"><span class="count-up" data-count="12">0</span>/Year</p>
           <p class="text-gray-300 mt-2">Monthly reports and real-time tracking.</p>
@@ -183,54 +373,54 @@
   </section>
 
   <!-- About Section with Tabs, Algae Bed, and Roadmap -->
-  <section id="about" class="py-16">
+  <section id="about" class="py-16" data-section="default">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400">About Algae</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">About Algae</h2>
       <div class="space-y-6 mb-16">
-        <div class="tab bg-gray-900 rounded-lg p-6 cursor-pointer ripple" data-tab="stability">
+        <div class="tab bg-gray-900 rounded-lg p-6 cursor-pointer reflective ripple" data-tint="default" data-tab="stability">
           <h3 class="text-2xl font-semibold text-cyan-400">Stability</h3>
           <div class="tab-content">
-            <p class="typed-text text-gray-300 mt-4"></p>
+            <p class="text-gray-300 mt-4">ALGA tokens are redeemable anytime for your proportional share of the Algae Bed, ensuring a hard floor on value.</p>
           </div>
         </div>
-        <div class="tab bg-gray-900 rounded-lg p-6 cursor-pointer ripple" data-tab="transparency">
+        <div class="tab bg-gray-900 rounded-lg p-6 cursor-pointer reflective ripple" data-tint="default" data-tab="transparency">
           <h3 class="text-2xl font-semibold text-cyan-400">Transparency</h3>
           <div class="tab-content">
-            <p class="typed-text text-gray-300 mt-4"></p>
+            <p class="text-gray-300 mt-4">The Algae Bed is tracked in real-time, with monthly reports and audits published for full accountability.</p>
           </div>
         </div>
-        <div class="tab bg-gray-900 rounded-lg p-6 cursor-pointer ripple" data-tab="innovation">
+        <div class="tab bg-gray-900 rounded-lg p-6 cursor-pointer reflective ripple" data-tint="default" data-tab="innovation">
           <h3 class="text-2xl font-semibold text-cyan-400">Innovation</h3>
           <div class="tab-content">
-            <p class="typed-text text-gray-300 mt-4"></p>
+            <p class="text-gray-300 mt-4">Our trading engine uses proven and experimental models like mean reversion and arbitrage, dynamically weighting capital to top performers.</p>
           </div>
         </div>
       </div>
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400">The Algae Bed</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">The Algae Bed</h2>
       <div class="grid md:grid-cols-2 gap-8 mb-16">
-        <div class="bg-gray-800 rounded-lg p-6">
+        <div class="bg-gray-800 rounded-lg p-6 reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Dynamic Pool Composition</h3>
           <p class="text-gray-300 mb-4">The Algae Bed is diversified across fiat pairs, crypto, and liquid markets, with allocations adjusted by our trading engine.</p>
           <div class="liquid-fill text-2xl text-white" style="--fill: 60%;">60% Fiat</div>
           <div class="liquid-fill text-2xl text-white mt-2" style="--fill: 30%;">30% Crypto</div>
           <div class="liquid-fill text-2xl text-white mt-2" style="--fill: 10%;">10% Other</div>
         </div>
-        <div class="bg-gray-800 rounded-lg p-6">
+        <div class="bg-gray-800 rounded-lg p-6 reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Growth Engine</h3>
           <p class="text-gray-300">Our trading models include mean reversion, momentum, and arbitrage, with capital weighted toward top performers.</p>
         </div>
       </div>
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400">Roadmap</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">Roadmap</h2>
       <div class="space-y-8">
-        <div class="timeline-item bg-gray-800 p-6 rounded-lg">
+        <div class="timeline-item bg-gray-800 p-6 rounded-lg reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400">Q1 2025: Launch</h3>
           <p class="text-gray-300">Token issuance and initial exchange listings.</p>
         </div>
-        <div class="timeline-item bg-gray-800 p-6 rounded-lg">
+        <div class="timeline-item bg-gray-800 p-6 rounded-lg reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400">Q2 2025: Wallet Integration</h3>
           <p class="text-gray-300">Support for MetaMask, Trust Wallet, and more.</p>
         </div>
-        <div class="timeline-item bg-gray-800 p-6 rounded-lg">
+        <div class="timeline-item bg-gray-800 p-6 rounded-lg reflective" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400">Q4 2025: DeFi Expansion</h3>
           <p class="text-gray-300">Integration with DeFi protocols for lending and staking.</p>
         </div>
@@ -239,69 +429,68 @@
   </section>
 
   <!-- How It Works Section -->
-  <section id="how-it-works" class="py-16 bg-gray-900">
+  <section id="how-it-works" class="py-16 bg-gray-900" data-section="default">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400">How the Algae Bed Works</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">How the Algae Bed Works</h2>
       <div class="grid md:grid-cols-2 gap-8">
         <div>
-          <div class="step-item mb-6">
+          <div class="step-item mb-6 reflective" data-tint="default">
             <h3 class="text-xl font-semibold text-cyan-400">1. Backed by the Algae Bed</h3>
             <p class="text-gray-300">ALGA tokens are fully backed by a diversified financial pool, ensuring a hard value floor.</p>
           </div>
-          <div class="step-item mb-6">
+          <div class="step-item mb-6 reflective" data-tint="default">
             <h3 class="text-xl font-semibold text-cyan-400">2. Algorithmic Trading</h3>
             <p class="text-gray-300">The pool is actively managed using proven and experimental strategies, with performance-based capital allocation.</p>
           </div>
-          <div class="step-item">
+          <div class="step-item reflective" data-tint="default">
             <h3 class="text-xl font-semibold text-cyan-400">3. Redemption</h3>
             <p class="text-gray-300">Holders can redeem ALGA for their proportional share of the pool at any time.</p>
           </div>
         </div>
-        <div class="bg-gray-800 rounded-lg p-6 text-center relative">
+        <div class="bg-gray-800 rounded-lg p-6 text-center relative reflective" data-tint="default">
           <div class="diagram-overlay"></div>
           <p class="text-gray-300 relative z-10">Algae Bed Flow Diagram Placeholder</p>
-          <!-- Replace with WebGL or SVG animation -->
         </div>
       </div>
     </div>
   </section>
 
   <!-- Trading & Wallet Section -->
-  <section id="trading" class="py-16">
+  <section id="trading" class="py-16" data-section="trading">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400">Trade & Store ALGA</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="trading">Trade & Store ALGA</h2>
       <div class="grid md:grid-cols-3 gap-8 mb-16">
-        <div class="wallet-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <div class="wallet-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">MetaMask</h3>
           <p class="text-gray-300">Connect your MetaMask wallet to trade ALGA.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Setup Guide</a>
         </div>
-        <div class="wallet-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <div class="wallet-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Trust Wallet</h3>
           <p class="text-gray-300">Store ALGA securely with Trust Wallet.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Setup Guide</a>
         </div>
-        <div class="wallet-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <div class="wallet-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Portfolio Tracker</h3>
           <p class="text-gray-300">Monitor your ALGA holdings in real-time.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Track Now</a>
         </div>
       </div>
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400">Available Exchanges</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="trading">Available Exchanges</h2>
       <div class="grid md:grid-cols-4 gap-8">
-        <a href="https://www.binance.com" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <a href="https://www.binance.com" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
           <img src="https://cdn.svgporn.com/logos/binance.svg" alt="Binance" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400">Binance</h3>
         </a>
-        <a href="https://www.coinbase.com" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <a href="https://www.coinbase.com" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
           <img src="https://cdn.svgporn.com/logos/coinbase.svg" alt="Coinbase" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400">Coinbase</h3>
         </a>
-        <a href="https://www.kraken.com" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <a href="https://www.kraken.com" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
           <img src="https://cdn.svgporn.com/logos/kraken.svg" alt="Kraken" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400">Kraken</h3>
         </a>
-        <a href="https://uniswap.org" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <a href="https://uniswap.org" target="_blank" class="exchange-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="trading">
           <img src="https://cdn.svgporn.com/logos/uniswap.svg" alt="Uniswap" class="w-12 h-12 mx-auto mb-4">
           <h3 class="text-xl font-semibold text-cyan-400">Uniswap</h3>
         </a>
@@ -310,21 +499,21 @@
   </section>
 
   <!-- Resources Section -->
-  <section id="resources" class="py-16 bg-gray-900">
+  <section id="resources" class="py-16 bg-gray-900" data-section="default">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400">Resources</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400 reflective" data-tint="default">Resources</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="resource-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <div class="resource-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Whitepaper</h3>
           <p class="text-gray-300">Dive into the technical details of Algae and the Algae Bed.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Download</a>
         </div>
-        <div class="resource-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <div class="resource-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Transparency Dashboard</h3>
           <p class="text-gray-300">Real-time Algae Bed composition and performance.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block glow">View Now</a>
         </div>
-        <div class="resource-card bg-gray-800 rounded-lg p-6 text-center ripple">
+        <div class="resource-card bg-gray-800 rounded-lg p-6 text-center reflective ripple" data-tint="default">
           <h3 class="text-xl font-semibold text-cyan-400 mb-4">Learn</h3>
           <p class="text-gray-300">Tutorials on stablecoins and the Algae Bed.</p>
           <a href="#" class="text-cyan-400 mt-4 inline-block">Explore</a>
@@ -334,25 +523,25 @@
   </section>
 
   <!-- Community Section -->
-  <section id="community" class="py-16 bg-gray-800">
+  <section id="community" class="py-16 bg-gray-800" data-section="default">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold mb-12 text-cyan-400">Join the Algae Community</h2>
+      <h2 class="text-4xl font-bold mb-12 text-cyan-400 reflective" data-tint="default">Join the Algae Community</h2>
       <div class="flex justify-center space-x-8 mb-8">
-        <a href="https://discord.com/invite/your-discord" target="_blank" class="social-logo ripple">
+        <a href="https://discord.com/invite/your-discord" target="_blank" class="social-logo reflective ripple" data-tint="default">
           <img src="https://cdn.svgporn.com/logos/discord-icon.svg" alt="Discord" class="w-12 h-12">
         </a>
-        <a href="https://t.me/your-telegram" target="_blank" class="social-logo ripple">
+        <a href="https://t.me/your-telegram" target="_blank" class="social-logo reflective ripple" data-tint="default">
           <img src="https://cdn.svgporn.com/logos/telegram.svg" alt="Telegram" class="w-12 h-12">
         </a>
-        <a href="https://x.com/your-x" target="_blank" class="social-logo ripple">
+        <a href="https://x.com/your-x" target="_blank" class="social-logo reflective ripple" data-tint="default">
           <img src="https://cdn.svgporn.com/logos/x.svg" alt="X" class="w-12 h-12">
         </a>
-        <a href="https://reddit.com/r/your-reddit" target="_blank" class="social-logo ripple">
+        <a href="https://reddit.com/r/your-reddit" target="_blank" class="social-logo reflective ripple" data-tint="default">
           <img src="https://cdn.svgporn.com/logos/reddit-icon.svg" alt="Reddit" class="w-12 h-12">
         </a>
       </div>
       <div class="max-w-md mx-auto">
-        <h3 class="text-xl font-semibold text-cyan-400 mb-4">Stay Rooted with Updates</h3>
+        <h3 class="text-xl font-semibold text-cyan-400 mb-4 reflective" data-tint="default">Stay Rooted with Updates</h3>
         <div class="flex">
           <input type="email" placeholder="Enter your email" class="w-full p-3 rounded-l-full bg-gray-700 text-gray-300 focus:outline-none">
           <button class="bg-cyan-500 text-white px-6 py-3 rounded-r-full hover:bg-cyan-600 ripple">Subscribe</button>
@@ -362,8 +551,8 @@
   </section>
 
   <!-- Ticker Section with Pool Performance -->
-  <section class="py-8 bg-gray-900 relative">
-    <div class="absolute inset-0" style="background: radial-gradient(circle, rgba(79,209,197,0.1) 10%, transparent 10.01%);"></div>
+  <section class="py-8 bg-gray-900 relative" data-section="default">
+    <div class="absolute inset-0 reflective" data-tint="default" style="background: linear-gradient(135deg, rgba(79,209,197,0.1), rgba(79,209,197,0.2));"></div>
     <div class="container mx-auto px-4 relative">
       <div class="overflow-hidden">
         <div class="ticker text-lg text-gray-300 whitespace-nowrap">
@@ -374,10 +563,10 @@
   </section>
 
   <!-- Footer with Water Flow -->
-  <footer class="py-8 bg-gray-950 text-center relative">
+  <footer class="py-8 bg-gray-950 text-center relative" data-section="default">
     <div class="water-flow absolute bottom-0 left-0 w-full"></div>
-    <p class="text-gray-400 mb-4 relative z-10">© 2025 Algae. All rights reserved.</p>
-    <p class="text-gray-500 text-sm mb-4 relative z-10">Investing in ALGA involves risks. Please read our <a href="#" class="text-cyan-400">disclaimer</a>.</p>
+    <p class="text-gray-400 mb-4 relative z-10 reflective" data-tint="default">© 2025 Algae. All rights reserved.</p>
+    <p class="text-gray-500 text-sm mb-4 relative z-10 reflective" data-tint="default">Investing in ALGA involves risks. Please read our <a href="#" class="text-cyan-400">disclaimer</a>.</p>
     <div class="relative z-10">
       <a href="#about" class="text-cyan-400 mx-2 hover:underline">About</a>
       <a href="#how-it-works" class="text-cyan-400 mx-2 hover:underline">How It Works</a>
@@ -445,7 +634,29 @@
     animateWater();
 
     // GSAP Animations
-    gsap.from(".wave-text", { y: 10, duration: 1, stagger: 0.1, repeat: -1, yoyo: true });
+    gsap.from(".wave-text", {
+      yPercent: 10,
+      duration: 1.5,
+      ease: "sine.inOut",
+      stagger: 0.1,
+      repeat: -1,
+      yoyo: true
+    });
+
+    // Dynamic Reflective Tint
+    const sections = document.querySelectorAll('[data-section]');
+    const reflectiveElements = document.querySelectorAll('.reflective');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionTint = entry.target.getAttribute('data-section');
+          reflectiveElements.forEach(el => {
+            el.setAttribute('data-tint', sectionTint);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+    sections.forEach(section => observer.observe(section));
 
     // Count-Up Animation
     document.querySelectorAll('.count-up').forEach(el => {
@@ -467,21 +678,7 @@
           toggleActions: "play none none reverse"
         },
         maxHeight: 500,
-        duration: 0.5,
-        onComplete: () => {
-          const content = tab.querySelector('.typed-text');
-          const tabType = tab.getAttribute('data-tab');
-          const texts = {
-            stability: "ALGA tokens are redeemable anytime for your proportional share of the Algae Bed, ensuring a hard floor on value.",
-            transparency: "The Algae Bed is tracked in real-time, with monthly reports and audits published for full accountability.",
-            innovation: "Our trading engine uses proven and experimental models like mean reversion and arbitrage, dynamically weighting capital to top performers."
-          };
-          new Typed(content, {
-            strings: [texts[tabType]],
-            typeSpeed: 50,
-            showCursor: false
-          });
-        }
+        duration: 0.5
       });
     });
 
@@ -517,13 +714,13 @@
       });
     });
 
-    // Wallet and Exchange Card Flip Effect
-    gsap.utils.toArray('.wallet-card, .exchange-card').forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        gsap.to(card, { rotationY: 180, duration: 0.5 });
+    // Button and Card Hover Animation
+    gsap.utils.toArray('.ripple, .social-logo, .wallet-card, .resource-card, .exchange-card').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        gsap.to(el, { scale: 1.05, duration: 0.3, delay: 0.1 });
       });
-      card.addEventListener('mouseleave', () => {
-        gsap.to(card, { rotationY: 0, duration: 0.5 });
+      el.addEventListener('mouseleave', () => {
+        gsap.to(el, { scale: 1, duration: 0.3 });
       });
     });
 
