@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algae Stablecoin - Disclaimer</title>
+  <meta name="description" content="Read the disclaimer for Algae Stablecoin, outlining risks and legal information for investing in ALGA tokens.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0a1128;
+      color: #d1d5db;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2 {
+      font-family: 'Exo 2', sans-serif;
+    }
+    .reflective {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(79,209,197,0.1));
+      border: 1px solid rgba(79,209,197,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+      transition: background 0.5s ease, border-color 0.5s ease;
+    }
+    .reflective::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: rotate(45deg);
+      transition: transform 0.5s ease;
+    }
+    .reflective[data-tint="default"] {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(79,209,197,0.1));
+      border-color: rgba(79,209,197,0.3);
+    }
+    .reflective:hover::before {
+      transform: rotate(45deg) translate(50%, 50%);
+    }
+    .ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    .ripple::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(79,209,197,0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+    .ripple:hover::after {
+      width: 300px;
+      height: 300px;
+    }
+    .glow {
+      box-shadow: 0 0 10px #4fd1c5, 0 0 20px #4fd1c5;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px #4fd1c5; }
+      50% { box-shadow: 0 0 20px #4fd1c5; }
+    }
+    .water-flow {
+      background: linear-gradient(90deg, rgba(79,209,197,0.2), rgba(0,247,255,0.2));
+      height: 20px;
+      animation: flow 5s linear infinite;
+    }
+    @keyframes flow {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="py-6 bg-gray-900 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold text-cyan-400 reflective" data-tint="default">Algae Stablecoin Disclaimer</h1>
+    </div>
+  </header>
+
+  <!-- Disclaimer Section -->
+  <section class="py-16" data-section="default">
+    <div class="container mx-auto px-4">
+      <div class="bg-gray-800 rounded-lg p-8 reflective" data-tint="default">
+        <h2 class="text-2xl font-semibold text-cyan-400 mb-6">Important Disclaimer</h2>
+        <p class="text-gray-300 mb-4">
+          The information provided on this website (https://algae-site.onrender.com/) and related materials about Algae Stablecoin (ALGA) is for informational purposes only and does not constitute financial, investment, or legal advice. Investing in ALGA tokens involves significant risks, including the potential loss of your entire investment.
+        </p>
+        <p class="text-gray-300 mb-4">
+          The Algae Stablecoin is backed by the Algae Bed, a diversified financial pool managed by algorithmic trading strategies. While designed to maintain a hard value floor and stability, the value of ALGA tokens may fluctuate due to market conditions, trading performance, or other factors. Redemption of ALGA tokens for a proportional share of the Algae Bed pool is subject to operational and technical risks, and there is no guarantee of immediate liquidity or redemption.
+        </p>
+        <p class="text-gray-300 mb-4">
+          Past performance of the Algae Bed or its trading strategies does not guarantee future results. The cryptocurrency market is highly volatile, and regulatory changes, security breaches, or technological issues may adversely affect ALGA tokens or the Algae Bed. You are solely responsible for evaluating the risks and consulting with qualified financial or legal advisors before investing in ALGA.
+        </p>
+        <p class="text-gray-300 mb-4">
+          Algae Stablecoin and its operators, affiliates, and partners disclaim any liability for losses or damages arising from the use of ALGA tokens, the Algae Bed, or this website. By engaging with ALGA tokens, you acknowledge and accept these risks.
+        </p>
+        <p class="text-gray-300 mb-6">
+          For further details, please review our whitepaper and transparency dashboard, available in the <a href="/resources" class="text-cyan-400 hover:underline">Resources</a> section. If you have any questions, contact our support team via our <a href="/community" class="text-cyan-400 hover:underline">Community</a> channels.
+        </p>
+        <a href="/" class="bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-cyan-600 transition glow ripple">Return to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-gray-950 text-center relative" data-section="default">
+    <div class="water-flow absolute bottom-0 left-0 w-full"></div>
+    <p class="text-gray-400 mb-4 relative z-10 reflective" data-tint="default">© 2025 Algae. All rights reserved.</p>
+    <div class="relative z-10">
+      <a href="/#about" class="text-cyan-400 mx-2 hover:underline">About</a>
+      <a href="/#how-it-works" class="text-cyan-400 mx-2 hover:underline">How It Works</a>
+      <a href="/#trading" class="text-cyan-400 mx-2 hover:underline">Trading</a>
+      <a href="/#resources" class="text-cyan-400 mx-2 hover:underline">Resources</a>
+      <a href="/#community" class="text-cyan-400 mx-2 hover:underline">Community</a>
+    </div>
+  </footer>
+
+  <script>
+    // GSAP Animations for Reflective Elements
+    gsap.utils.toArray('.ripple').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        gsap.to(el, { scale: 1.05, duration: 0.3, delay: 0.1 });
+      });
+      el.addEventListener('mouseleave', () => {
+        gsap.to(el, { scale: 1, duration: 0.3 });
+      });
+    });
+  </script>
+</body>
+</html>
